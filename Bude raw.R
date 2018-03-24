@@ -10,7 +10,7 @@ ggmap(watercolor)
 
 # vacation spots
 df <- data.frame(location = c("Summerleaze Beach", 
-                              "Crooklets Beach"), 
+                              "Crooklets Beach","The Brendon Arms","Edgcumbe Hotel"), 
                  values = c(30, 30), 
                  stringsAsFactors = FALSE)
 locs_geo <- geocode(df$location)
@@ -50,3 +50,13 @@ ggmap(map) +
             size = 1.5, 
             data = route_df,
             lineend = "round")
+
+##To get the pictures of your favourite locations##
+##Install package magick
+##load the library(magick)
+library(magick)
+EdgcumbeHotelimge <- image_scale(image_read('https://www.theweddingsecret.co.uk/img/uploads/businessgallery/57628dbac3e09_Ceremony_2.jpg',"x175"))
+print(CrookletsBeachimge)
+BrendonArmsimge <- image_scale(image_read('https://s-ec.bstatic.com/images/hotel/max1280x900/282/28226592.jpg',"x175"))
+print(BrendonArmsimge)
+
