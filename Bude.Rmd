@@ -10,15 +10,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # Bude, Western England
+Bude is a small seaside resort town in north Cornwall, England, UK, in the civil parish of Bude-Stratton and at the mouth of the River Neet. It is sometimes formerly known as Bude Haven.
+
 ## Road Map
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(ggmap)
 road <- get_map(location = "Bude", zoom = 14)
 ggmap(road)
 ```
 
 ## Watercolor Map
-```{r}
+```{r, warning=FALSE, message=FALSE}
 watercolor <- get_map(location = "Bude", maptype = "watercolor", zoom = 14)
 ggmap(watercolor)
 ```
@@ -26,7 +28,7 @@ ggmap(watercolor)
 \newpage
 # Vacation Spots in Bude: Summerleaze Beach and Crooklets Beach
 ## Road Map
-```{r}
+```{r, warning=FALSE, message=FALSE}
 df <- data.frame(location = c("Summerleaze Beach", 
                               "Crooklets Beach"), 
                  values = c(30, 30), 
@@ -48,6 +50,25 @@ ggmap(watercolor) +
   geom_text(data = df,
             aes(x = lon, y = lat, label = location),
             color = 'blue')
+```
+
+\newpage
+## Summerleaze Beach
+Summerleaze Beach in Bude is the central hub of sand, surf and sun. The first port of call for many visitors due to the sea pool and Seaside Award.
+
+```{r, warning=FALSE, message=FALSE}
+library(magick)
+summerleaze <- image_scale(image_read('https://www.visitbude.info/wp-content/uploads/2015/04/Extra-Large.jpg'), "400")
+print(summerleaze)
+```
+
+\newpage
+## Crooklets Beach
+Although a little pebbly at the top, Crooklets offers a huge expanse of golden sand and rock pools to explore once the tide is out. It is popular with surfers, but also families who would prefer a beach without dogs.
+
+```{r}
+crooklets <- image_scale(image_read('https://www.visitbude.info/wp-content/uploads/2016/07/Crooklets-Beach-Huts-1.jpg'), "3000")
+print(crooklets)
 ```
 
 \newpage
@@ -79,4 +100,22 @@ ggmap(map) +
             size = 1.5, 
             data = route_df,
             lineend = "round")
+```
+
+\newpage
+## Bude North Cornwall Cricket Club
+Bude North Cornwall Cricket Club is situated on the clifftops overlooking the Atlantic Ocean, and is quite simply one of the most stunning locations you could ever wish to visit, let alone play cricket at!
+
+```{r}
+cricket <- image_scale(image_read('http://s3.amazonaws.com/medias.photodeck.com/dec62d31-906a-4315-9e6e-1b27c873f10a/SAB6149_bigthumb.jpg'), "2000")
+print(cricket)
+```
+
+\newpage
+## Crooklets Inn
+The Crooklets Inn is a friendly, family run Public House situated right on the door to the famous Crooklets Beach, with the North Cornwall Golf Course imme.
+
+```{r}
+inn <- image_scale(image_read('http://guide2.cornishtraditionalcottages.co.uk/attractionimages/assets/7682/xlarge/The%20Crooklets%20Inn,%201.jpg'), "400")
+print(inn)
 ```
